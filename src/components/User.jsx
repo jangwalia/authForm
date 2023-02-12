@@ -1,6 +1,6 @@
 import Card from "./Card";
 import { useState } from "react";
-export const User = () => {
+export const User = ({ onAddUser }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
 
@@ -14,8 +14,7 @@ export const User = () => {
     if (+age < 1) {
       return;
     }
-
-    console.log(`${name} is ${age} years old`);
+    onAddUser(name, age);
     setName("");
     setAge(0);
   };
